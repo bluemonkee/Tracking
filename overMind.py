@@ -10,20 +10,20 @@ import interactionCSV
 
 
 # Start date and end date for analysis# 
-start_date = '2015-01-10 0:00:00'
-end_date = '2015-01-15 0:00:00'
+start_date = '2014-11-14 0:00:00'
+end_date = '2014-12-31 0:00:00'
 
 # Download latest databases and replace existing?
-new_databases = True
+new_databases = False
 
 # Create CSV of interactions?
 new_csv = True
 
 # List purchased art
-list_purchased = True
+list_purchased = False
 
 # Count occurrences of count_vars 
-count_vars = ["credit", "pennytest", "luggage", "parade", "imissmom"]
+count_vars = ["credit", "pennytest", "luggage", "parade", "imissmom", "Invalid"]
 
 # List variable following string
 list_vars = []
@@ -68,7 +68,7 @@ if __name__ == '__main__':
 		# --------------------------------------------# 		
 		if new_csv == True:
 			#Create csv of interactions
-			interactionCSV.interaction2CSV(str(database_name) + '.sqlite3', start_date, end_date, new_csv_filename, count_vars, list_vars, list_purchased)
+			interactionCSV.interaction2CSV(str(kiosk) + '.sqlite3', start_date, end_date, str(kiosk) + '.csv', count_vars, list_vars, list_purchased)
 		print "--------------------------------"
 		
 		
