@@ -29,7 +29,7 @@ count_first_free = True
 count_vars = ["credit", "pennytest", "luggage", "parade", "imissmom", "First user rebate email:"]
 
 # List variable following string
-list_vars = []
+list_vars = ["First user rebate email:","credit"]
 
 # Count occurrences of sequence of events
 
