@@ -1,6 +1,6 @@
 import sqlite3, os
 
-def interaction2CSV(db_name, start_date, end_date, filename, count_vars, list_vars, list_purchased):
+def interaction2CSV(db_name, start_date, end_date, filename, count_vars, list_vars, list_purchased, count_first_free):
 	
 
 	
@@ -26,6 +26,8 @@ def interaction2CSV(db_name, start_date, end_date, filename, count_vars, list_va
 	
 	#zero out all list_vars
 	list_array = [] * len(list_vars)
+	
+	count_free = 0
 			
 	#print to screen
 	for row in output: 
@@ -40,6 +42,11 @@ def interaction2CSV(db_name, start_date, end_date, filename, count_vars, list_va
 				if str(list_vars[i]) in str(str(row[1])):
 					print str(str(row[1])).replace(list_vars[i],'').replace('ValFail','').replace('MCDebit','')
 					
+			#count first free cards
+			if count_first_free == True:
+				if str(row[1].replace('  ','').split(',')[0]) == "credit":
+					if str(row[2]) == "APPLIED":
+						count_free = count_free + 1
 
 			
 		except: #Fail likely due to a non-unicode error
@@ -134,6 +141,10 @@ def interaction2CSV(db_name, start_date, end_date, filename, count_vars, list_va
 	
 	#Results for count_vars
 	print "================================"
+	
+	if count_first_free == True:
+		print "Free cards delivered = " + str(count_free)
+	
 	for i in range(0,len(count_vars)):
 		print "String \"" + str(count_vars[i]) + "\" occurs " + str(buckets[i]) + " times"
 
