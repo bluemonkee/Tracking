@@ -38,7 +38,9 @@ def downloadAttachments(emailAddress,password):
 if __name__ == '__main__':
 	print "Starting email download..."
 
-	emails = ['eatscardislekiosk@gmail.com','techcardislekiosk@gmail.com','dietrickcardislekiosk@gmail.com','umallcardislekiosk@gmail.com','1stmaincardislekiosk@gmail.com','16westkiosk@gmail.com','kiosk7cardisle@gmail.com','pharmacycardislekiosk@gmail.com','metalcardislekiosk@gmail.com']
+	emails = ['eatscardislekiosk@gmail.com','techcardislekiosk@gmail.com','dietrickcardislekiosk@gmail.com',
+              'umallcardislekiosk@gmail.com','1stmaincardislekiosk@gmail.com','16westkiosk@gmail.com',
+              'kiosk7cardisle@gmail.com','pharmacycardislekiosk@gmail.com','metalcardislekiosk@gmail.com']
 	
 	for i in emails:
 		password = '5408675309'
